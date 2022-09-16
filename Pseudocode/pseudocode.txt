@@ -1,0 +1,51 @@
+PSEUDOCODE Order Makanan atau Minuman Online
+
+READ AND WRITE “usernameDatabase” with string
+READ AND WRITE “passwordDatabase” with string
+READ AND WRITE “usernameInput” with string
+READ AND WRITE “passwordInput” with string
+
+READ AND WRITE “register” with string
+READ AND WRITE “login” with string
+STORE “register” with bool false
+`
+READ AND WRITE “isLogin” with bool
+STORE “isLogin” with bool false
+
+IF “register” equal than true
+DISPLAY Register
+INPUT “usernameRegister”
+INPUT “passwordRegister”
+
+READ AND WRITE “usernameRegister” with string
+READ AND WRITE “passwordRegister” with string
+
+	STORE “register” with bool false
+DISPLAY Menu
+	
+ELSE 
+	DISPLAY Login
+IF “usernameInput” equal than “usernameDatabase” 
+	STORE “isLogin” with bool true
+DISPLAY Menu
+
+ELSE 
+	STORE “isLogin” with bool false
+	DISPLAY “Username / Password salah”
+
+
+
+READ AND WRITE “addMenu” with string
+STORE “addMenu” with bool true
+READ AND WRITE “foodBasket” with dictionarry
+
+WHILE “addMenu” is true and “isLogin” is true
+DO
+READ AND WRITE “menuInput” with string
+INPUT “menuInput”
+DISPLAY “menuInput”
+READ AND WRITE “foodAmound” with integer
+INPUT “foodAmound”
+STORE “foodBasket” with string  key “menuInput” and value “foodAmound”
+
+
