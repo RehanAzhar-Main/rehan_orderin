@@ -1,5 +1,4 @@
 PSEUDOCODE Order Makanan atau Minuman Online
-
 READ AND WRITE “usernameDatabase” with string
 READ AND WRITE “passwordDatabase” with string
 READ AND WRITE “usernameInput” with string
@@ -21,13 +20,11 @@ READ AND WRITE “usernameRegister” with string
 READ AND WRITE “passwordRegister” with string
 
 	STORE “register” with bool false
-DISPLAY Menu
 	
 ELSE 
 	DISPLAY Login
 IF “usernameInput” equal than “usernameDatabase” 
 	STORE “isLogin” with bool true
-DISPLAY Menu
 
 ELSE 
 	STORE “isLogin” with bool false
@@ -35,17 +32,51 @@ ELSE
 
 
 
-READ AND WRITE “addMenu” with string
+READ AND WRITE “addMenu” with bool
 STORE “addMenu” with bool true
 READ AND WRITE “foodBasket” with dictionarry
 
 WHILE “addMenu” is true and “isLogin” is true
 DO
+	DISPLAY Menu
+	INPUT “addMenu” 
+	IF  “addMenu” equal than true
 READ AND WRITE “menuInput” with string
 INPUT “menuInput”
 DISPLAY “menuInput”
 READ AND WRITE “foodAmound” with integer
 INPUT “foodAmound”
 STORE “foodBasket” with string  key “menuInput” and value “foodAmound”
+	ELSE
+		DISPLAY Exit
+
+IF “foodBasket” is not empty
+	DISPLAY Rincian Makanan / Minuman
+READ AND WRITE “checkout” with bool
+READ AND WRITE “isCheckout” with bool
+INPUT “isCheckout”
+STORE “checkout” with bool “isCheckout”
+
+	IF “checkout” is equal than true
+		DISPLAY Pembayaran
+	READ AND WRITE “pembayaran” with bool
+
+		IF “pembayaran” equal than true 
+		READ AND WRITE “layanan” with string
+READ AND WRITE “inputLayanan” with string
+		INPUT “inputLayanan”
+STORE “layanan” with bool “inputLayanan”
+INPUT “konfirmasiPembayaran”
+		READ AND WRITE “konfirmasiPembayaran” with bool
+		IF “konfirmasiPembayaran” is true 
+			READ AND WRITE “orderMakanan” with dictionarry
+	STORE “orderMakanan” with string “foodBasket”
+ELSE 
+	DISPLAY PembayaranBatal
+		ELSE 
+			READ AND WRITE “waitingOrder” with dictionarry
+			STORE “waitingOrder” with string “foodBasket”
+ELSE
+	DISPLAY Exit
 
 
