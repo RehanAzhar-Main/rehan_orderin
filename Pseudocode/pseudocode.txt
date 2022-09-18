@@ -1,3 +1,20 @@
+FUNCTION KonfirmasiPembayaranPetugas()
+	READ AND WRITE “konfirmasiPembayaran” with string
+	READ AND WRITE “konfirmasiPembayaranInput” with string
+	INPUT “konfirmasiPembayaranInput”
+	READ AND WRITE “konfirmasiPembayaran” with bool “konfirmasiPembayaranInput”
+	
+	IF “konfirmasiPembayaran” is true 
+		READ AND WRITE “orderMakanan” with array of string
+		STORE “orderMakanan” with array of string “foodBasket”
+		Return “orderMakanan”
+
+	ELSE 
+		DISPLAY Pembayaran Batal
+		Return string "PembayaranBatal"
+END PROCEDURE
+
+
 READ AND WRITE “addMenu” with bool
 STORE “addMenu” with bool true
 READ AND WRITE “foodBasket” with array of string
@@ -5,9 +22,11 @@ READ AND WRITE “foodBasket” with array of string
 WHILE “addMenu” is true 
 DO
 	DISPLAY Menu 
+
 	READ AND WRITE “menuInput” with string
 	INPUT “menuInput”
 	DISPLAY “menuInput”
+
 	READ AND WRITE “foodAmound” with integer
 	INPUT “foodAmound”
 	STORE “foodBasket” with string  key “menuInput” and value “foodAmound”
@@ -21,8 +40,26 @@ DO
 		STORE “checkout” with bool “isCheckout”
 
 		IF “checkout” is true
-			READ AND WRITE “orderMakanan” with array of string
-			STORE “orderMakanan” with string “foodBasket”
+
+			READ AND WRITE “pembayaranOnline” with bool
+			READ AND WRITE “pembayaranOnlineInput” with bool
+			
+			INPUT “pembayaranOnlineInput”
+			STORE “pembayaranOnline” with bool “pembayaranOnlineInput”
+			
+			IF “pembayaranOnline” equal than true 
+				READ AND WRITE “layanan” with string
+				READ AND WRITE “inputLayanan” with string
+				INPUT “inputLayanan”
+				STORE “layanan” with bool “inputLayanan”
+
+				READ AND WRITE “StatusPembayaran” with array of string
+				STORE “StatusPembayaran” with array of string KonfirmasiPembayaranPetugas()
+
+			ELSE
+				Display Rincian Uang dan Mekanisme Pembayaran
+				READ AND WRITE “StatusPembayaran” with array of string
+				STORE “StatusPembayaran” with array of string KonfirmasiPembayaranPetugas()
 		ELSE
 			DISPLAY Menu
 	ELSE 
