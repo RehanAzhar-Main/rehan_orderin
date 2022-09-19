@@ -12,7 +12,7 @@ FUNCTION KonfirmasiPembayaranPetugas()
 	ELSE 
 		DISPLAY Pembayaran Batal
 		Return string "PembayaranBatal"
-END PROCEDURE
+END FUNCTION
 
 
 READ AND WRITE “addMenu” with bool
